@@ -15,8 +15,8 @@ jobs:
         name: Get latest Flickr image from album
         run: |
             
-            LATEST_IMAGE_INFO=$(curl -s "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${{ secrets.FLICKR_API_KEY }}&photoset_id=72157716222153076&format=json&nojsoncallback=1" | jq -r '.photoset.photo[-1]')
-            echo "LATEST_IMAGE_URL=${LATEST_IMAGE_INFO | jq -r '"https://live.staticflickr.com/" + .server + "/" + .id + "_" + .secret + "_b.jpg"'}" 
+            LATEST_IMAGE_INFO=$(curl -s "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${{ secrets.FLICKR_API_KEY }}&photoset_id=72157716222153076&format=json&per_page=1&nojsoncallback=1" | jq -r '.photoset.photo[-1]')
+            echo LATEST_IMAGE_URL=$(echo $LATEST_IMAGE_INFO | jq -r '"https://live.staticflickr.com/" + .server + "/" + .id + "_" + .secret + "_b.jpg"')
             echo "LATEST_IMAGE_TITLE=$(echo $LATEST_IMAGE_INFO | jq -r '.title')" 
 
 
