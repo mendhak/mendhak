@@ -19,6 +19,8 @@ jobs:
             echo LATEST_IMAGE_URL=$(echo $LATEST_IMAGE_INFO | jq -r '"https://live.staticflickr.com/" + .server + "/" + .id + "_" + .secret + "_b.jpg"') >> $GITHUB_ENV
             echo "LATEST_IMAGE_ID=$(echo $LATEST_IMAGE_INFO | jq -r '.id')" >> $GITHUB_ENV
 
+      - uses: actions/checkout@v3
+            
       - name: Overwrite README with latest image
         run: |
             echo "<a href=\"https://www.flickr.com/photos/mendhak/${{ env.LATEST_IMAGE_ID }}\"><img src=\"${{ env.LATEST_IMAGE_URL }}\" /></a>" > README.md
@@ -29,7 +31,7 @@ jobs:
             git config --global user.email "mendhak@users.noreply.github.com"
             git add README.md
             git commit -m "Update README with latest Flickr image" 
-            git push origin HEAD:main
+            git push
     
 
 
