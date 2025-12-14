@@ -1,0 +1,22 @@
+name: Update README
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    permissions: 
+      contents: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-flickr-image
+        name: Get latest Flickr image from album
+        run: |
+            
+            LATEST_IMAGE_INFO=$(curl -s "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${{ secrets.FLICKR_API_KEY }}&photoset_id=72157716222153076&format=json&nojsoncallback=1" | jq -r '.photoset.photo[-1]')'
+            echo "LATEST_IMAGE_URL=${LATEST_IMAGE_INFO | jq -r '"https://live.staticflickr.com/" + .server + "/" + .id + "_" + .secret + "_b.jpg"'}" 
+            echo "LATEST_IMAGE_TITLE=$(echo $LATEST_IMAGE_INFO | jq -r '.title')" 
+
+
