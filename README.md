@@ -1,1 +1,1 @@
-<a href="https://www.flickr.com/photos/mendhak/55001123535"><img src="https://live.staticflickr.com/65535/55001123535_f59776ebe4_b.jpg" /></a>
+<a href="https://www.flickr.com/photos/mendhak/55005839531"><img src="https://live.staticflickr.com/65535/55005839531_8c222b129f_b.jpg" /></a>
