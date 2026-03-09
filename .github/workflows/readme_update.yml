@@ -5,7 +5,7 @@ on:
 
     inputs:
       image_override:
-        description: 'Override the image URL (optional)'  # https://flickr.com/photos/mendhak/55139090030
+        description: 'Override the image URL (eg https://flickr.com/photos/mendhak/55139090030)'  
         required: false
         default: ''    
 
