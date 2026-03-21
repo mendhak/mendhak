@@ -36,7 +36,7 @@ jobs:
             
       - name: Overwrite README with latest image
         run: |
-            echo "<a href=\"https://www.flickr.com/photos/mendhak/${{ env.LATEST_IMAGE_ID }}\"><img src=\"${{ env.LATEST_IMAGE_URL }}\" /></a>" > README.md
+            echo "<p align="center"><a href=\"https://www.flickr.com/photos/mendhak/${{ env.LATEST_IMAGE_ID }}\"><img src=\"${{ env.LATEST_IMAGE_URL }}\" /></a></p>" > README.md
             cat README.md
       - name: Commit and push changes
         run: |
